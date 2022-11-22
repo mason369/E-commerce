@@ -1,0 +1,25 @@
+//自定义
+@font-face {
+	font-family: "新正";
+	src: url(/src/assets/fonts/FZSuHJW.TTF);
+}
+
+// pc端
+$font-family-medium: "PingFang-SC-medium", Helveti ca, Tahoma, Arial,
+	"Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+$font-family-regular: "PingFang-SC-regular", Helvetica, Tahoma, Arial,
+	"Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+
+//移动端
+$font-family-ultralight: "PingFangSC-Ultralight", "Source Han Sans CN",
+	"Helvetica Neue";
+$font-family-regular: "PingFangSC-Regular", "Source Han Sans CN",
+	"Helvetica Neue";
+$font-family-medium: "PingFangSC-Medium", "Source Han Sans CN Medium",
+	"Helvetica Neue";
+$font-family-thin: "PingFangSC-Thin", "Source Han Sans CN Thin",
+	"Helvetica Neue";
+$font-family-light: "PingFangSC-Light", "Source Han Sans CN Light",
+	"Helvetica Neue";
+$font-family-semibold: "PingFangSC-Semibold", "Source Han Sans CN Light",
+	"Helvetica Neue";
