@@ -5,7 +5,7 @@
                 <!--banner轮播-->
                 <el-carousel indicator-position="outside" height="440px">
                     <el-carousel-item v-for="carousel in bannerList" :key="carousel.id">
-                        <img :src="carousel.imgUrl" style="width: 100%; height: 100%;" />
+                        <img :src="carousel.imgUrl" style="width: 100%; height: 100%" />
                     </el-carousel-item>
                 </el-carousel>
             </div>
@@ -13,16 +13,16 @@
             <div class="right">
                 <div class="news">
                     <h4>
-                        <em class="fl">尚品汇快报</em>
+                        <em class="fl">平台快报</em>
                         <span class="fr tip">更多 ></span>
                     </h4>
                     <div class="clearix"></div>
                     <ul class="news-list unstyled">
-                        <li><span class="bold">[特惠]</span>备战开学季 全民半价购数码</li>
-                        <li><span class="bold">[公告]</span>备战开学季 全民半价购数码</li>
-                        <li><span class="bold">[特惠]</span>备战开学季 全民半价购数码</li>
-                        <li><span class="bold">[公告]</span>备战开学季 全民半价购数码</li>
-                        <li><span class="bold">[特惠]</span>备战开学季 全民半价购数码</li>
+                        <li><span class="bold">[特惠]</span>农房做金融抵押物难度很大</li>
+                        <li><span class="bold">[公告]</span>80后女农夫谈建设新农村</li>
+                        <li><span class="bold">[特惠]</span>生姜价格较去年高约六成</li>
+                        <li><span class="bold">[公告]</span>猪粮比价重回平衡点以上</li>
+                        <li><span class="bold">[特惠]</span>农产品精品中心落户北京</li>
                     </ul>
                 </div>
                 <ul class="lifeservices">

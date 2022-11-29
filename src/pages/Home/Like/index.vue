@@ -94,15 +94,14 @@ export default {};
                 float: right;
                 background-image: url(./images/icons.png);
                 width: 66px;
-                height: 25px;
-                background-position: 182px -104px;
-                line-height: 30px;
+                background-position: 182px -106px;
+                line-height: 20px;
                 font-size: 12px;
                 font-weight: 400;
                 color: #666;
                 text-decoration: none;
                 margin-right: 20px;
-                line-height: 35px;
+              margin-top: 8px;
             }
         }
 

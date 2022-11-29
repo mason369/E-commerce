@@ -7,7 +7,7 @@
                 class="t-left"
                 onerror="javascript:this.src='/webpage/gxs/images/wutu.png'"
             />
-            <h3>热门供应</h3>
+            <h3>热门商品</h3>
             <img
                 src="https://res.fupin832.com/icon/title-right.png"
                 alt=""
@@ -249,7 +249,7 @@ export default {
 }
 .louceng-title {
     h3 {
-        font-size: 25px;
+        font-size: 30px;
         font-weight: 600;
         margin: 0 25px;
         color: #f8523c;

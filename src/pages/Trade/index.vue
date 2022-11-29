@@ -15,7 +15,7 @@
             <h5 class="pay">支付方式</h5>
             <div class="address clearFix">
                 <span class="username selected">在线支付</span>
-                <span class="username" style="margin-left: 5px">货到付款</span>
+                <span class="username" style="margin-left: 5px;">货到付款</span>
             </div>
             <div class="line"></div>
             <h5 class="pay">送货清单</h5>
@@ -30,7 +30,7 @@
                 <h5>商品清单</h5>
                 <ul class="list clearFix" v-for="(order, index) in orderInfo.detailArrayList" :key="order.skuid">
                     <li>
-                        <img :src="order.imgUrl" alt="" style="width: 100px; height: 100px" />
+                        <img :src="order.imgUrl" alt="" style="width: 100px; height: 100px;" />
                     </li>
                     <li>
                         <p>{{ order.skuName }}</p>
@@ -75,7 +75,7 @@
         </div>
         <div class="trade">
             <div class="price">
-                应付金额:　<span>¥{{ orderInfo.totalAmount }}.00</span>
+                应付金额: <span>¥{{ orderInfo.totalAmount }}.00</span>
             </div>
             <div class="receiveInfo">
                 寄送至:
@@ -147,7 +147,7 @@ export default {
                     //路由跳转 + 路由传递参数
                     this.$router.push("/pay?orderId=" + this.orderId);
             } else {
-                alert(result.data+"不能重复提交订单");
+                alert(result.data + "不能重复提交订单");
             }
         },
     },
@@ -166,9 +166,11 @@ export default {
 
 .trade-container {
     .title {
+        text-align: center;
         width: 1200px;
-        margin: 0 auto;
-        font-size: 14px;
+        margin: 20px auto;
+        font-size: 20px;
+        font-weight: 600;
         line-height: 21px;
     }
 
@@ -290,8 +292,6 @@ export default {
 
         .detail {
             width: 1080px;
-
-            background: #feedef;
             padding: 15px;
             margin: 2px auto 0;
 
@@ -300,9 +300,10 @@ export default {
             }
 
             .list {
+                border: 1px solid #ddd;
                 display: flex;
                 justify-content: space-between;
-
+align-items: center;
                 li {
                     line-height: 30px;
 
@@ -317,6 +318,12 @@ export default {
 
                     h3 {
                         color: #e12228;
+                    }
+                    &:nth-child(2) {
+                        display: flex;
+                        flex-direction: column;
+                        width: 600px;
+                        height: 100px;
                     }
                 }
             }
@@ -339,23 +346,34 @@ export default {
         }
 
         .bill {
+            background-color: rgb(221, 221, 221);
+            display: flex;
+            justify-content: start;
+            flex-direction: column;
             h5 {
                 line-height: 50px;
             }
 
-            div {
+            div,h5 {
                 padding-left: 15px;
             }
         }
     }
 
     .money {
+        
+        background-color: rgb(221, 221, 221);
         width: 1200px;
         margin: 20px auto;
+        height: 155px;
+        display: flex;
+        align-items: center;
+        justify-content: end;
 
         ul {
-            width: 220px;
+            width: 320px;
             float: right;
+            margin-right: 15px;
 
             li {
                 line-height: 30px;

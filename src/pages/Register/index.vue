@@ -7,14 +7,13 @@
                 <span class="go">我有账号，去 <router-link to="/login">登陆</router-link> </span>
             </h3>
             <div class="Register_sFill">
-
                 <div class="content">
-                    <label>邮箱号:</label>
-                    <input type="text" placeholder="请输入你的邮箱" v-model="phone" />
-                    <span class="error-msg">请输入邮箱号（以此来接收你的验证码）</span>
+                    <label>手机号:</label>
+                    <input type="text" placeholder="请输入你的手机号" v-model="phone" />
+                    <span class="error-msg">请输入手机号（以此来接收你的验证码）</span>
                 </div>
                 <div class="content">
-                    <label>邮箱验证:</label>
+                    <label>验证码:</label>
                     <input type="text" placeholder="请输入验证码" v-model="code" />
                     <button style="width: 100px; height: 38px;" @click="getCode">获取验证码</button>
                     <span class="error-msg">请输入验证码</span>
@@ -61,6 +60,17 @@ export default {
         };
     },
     methods: {
+        submitForm(formName) {
+            this.$refs[formName].validate((valid) => {
+                if (valid) {
+                    alert("submit!");
+                } else {
+                    console.log("error submit!!");
+                    return false;
+                }
+            });
+        },
+
         async getCode() {
             try {
                 //如果或取到验证码
@@ -74,7 +84,6 @@ export default {
         async userRegister() {
             try {
                 //如果成功----路由跳转
-
                 const { phone, code, password, confirmPassword } = this;
                 phone &&
                     code &&
@@ -98,6 +107,7 @@ export default {
     border: 2px solid #06c152;
     border-right: none;
     border-left: none;
+
     .register {
         width: 1200px;
         height: 405px;
@@ -115,12 +125,14 @@ export default {
             margin-left: 340px;
             font-size: 20px;
             font-weight: 600;
+
             span {
                 width: 650px;
                 font-size: 14px;
                 float: right;
                 display: flex;
                 justify-content: end;
+
                 a {
                     color: #e6560e;
                 }
@@ -213,6 +225,7 @@ export default {
         }
     }
 }
+
 .register > .row {
     margin-bottom: 15px;
 }

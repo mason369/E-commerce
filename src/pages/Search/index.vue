@@ -64,9 +64,12 @@
                             <li class="yui3-u-1-5" v-for="goods in goodsList" :key="goods.length">
                                 <div class="list-wrap">
                                     <div class="p-img">
-                                        <router-link :to="`/detail/${goods.id}`">
-                                            <img :src="goods.defaultImg" />
-                                        </router-link>
+                                        <!--                                        <router-link :to="`/detail/${goods.id}`" @click='cli(goods.id)'>-->
+                                        <!--                                            <img :src="goods.defaultImg" />-->
+                                        <!--                                        </router-link> -->
+                                        <div @click="cli(goods.id)">
+                                            <img class="p-img" :src="goods.defaultImg" />
+                                        </div>
                                     </div>
                                     <div class="price">
                                         <strong>
@@ -114,7 +117,7 @@
 
 <script>
 import SearchSelector from "./SearchSelector/SearchSelector";
-import { mapGetters, mapState } from "vuex";
+import { mapGetters, mapMutations, mapState } from "vuex";
 
 export default {
     data() {
@@ -136,7 +139,7 @@ export default {
                 // 当前第几页
                 pageNo: "1",
                 // 每页展示个数
-                pageSize: "3",
+                pageSize: "10",
                 // 平台售卖属性操作带的参数
                 props: [],
                 //品牌
@@ -176,6 +179,12 @@ export default {
         }),
     },
     methods: {
+        ...mapMutations(["SetGoodsId"]),
+        cli(id) {
+            console.log(id);
+            this.SetGoodsId(id);
+            this.$router.push("/detail/" + id);
+        },
         getData() {
             this.$store.dispatch("getSearchList", this.searchParams);
         },
@@ -415,6 +424,7 @@ export default {
 
                         .list-wrap {
                             .p-img {
+                                cursor: pointer;
                                 padding-left: 15px;
                                 width: 215px;
                                 height: 255px;

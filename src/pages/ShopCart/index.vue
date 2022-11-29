@@ -190,7 +190,7 @@ export default {
         totalPrice() {
             let sum = 0;
             this.cartInfoList.forEach((item) => {
-              //选中的才计算总价
+                //选中的才计算总价
                 item.isChecked == 1 ? (sum += item.skuNum * item.skuPrice) : "";
             });
             //返回总价
@@ -216,8 +216,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.sum-btn{
-  cursor: pointer
+.sum-btn {
+    cursor: pointer;
 }
 .cart {
     width: 1200px;
@@ -269,6 +269,9 @@ export default {
             border: 1px solid #ddd;
 
             .cart-list {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
                 padding: 10px;
                 border-bottom: 1px solid #ddd;
                 overflow: hidden;
@@ -295,10 +298,14 @@ export default {
                         width: 150px;
                         margin: 0 10px;
                         line-height: 18px;
+                        font-size: 12px;
+                        color: #e1251b;
                     }
                 }
 
                 .cart-list-con4 {
+                    color: #e1251b;
+                    font-weight: 600;
                     width: 10%;
                 }
 
@@ -316,9 +323,9 @@ export default {
                     }
 
                     input {
+                        height: 30px;
                         border: 1px solid #ddd;
                         width: 40px;
-                        height: 33px;
                         float: left;
                         text-align: center;
                         font-size: 14px;
@@ -344,10 +351,17 @@ export default {
                 }
 
                 .cart-list-con7 {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
                     width: 13%;
 
                     a {
+                        cursor: pointer;
                         color: #666;
+                        &:hover{
+                            color: rgb(39, 39, 39);
+                        }
                     }
                 }
             }
@@ -355,6 +369,9 @@ export default {
     }
 
     .cart-tool {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
         overflow: hidden;
         border: 1px solid #ddd;
 
@@ -385,6 +402,9 @@ export default {
         }
 
         .money-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             float: right;
 
             .chosed {

@@ -277,59 +277,13 @@
                 </div>
                 <div class="intro">
                     <ul class="tab-wraped">
-                        <li class="active">
-                            <a href="###"> 商品介绍 </a>
-                        </li>
-                        <li>
-                            <a href="###"> 规格与包装 </a>
-                        </li>
-                        <li>
-                            <a href="###"> 售后保障 </a>
-                        </li>
-                        <li>
-                            <a href="###"> 商品评价 </a>
-                        </li>
-                        <li>
-                            <a href="###"> 手机社区 </a>
+                        <li v-for="(item, index) in comData" :class="activeIndex == index ? 'active' : ''" :key="index">
+                            <a @click="liClick(item, index)">{{ item.name }}</a>
                         </li>
                     </ul>
-                    <div class="tab-content">
-                        <div id="one" class="tab-pane active">
-                            <ul class="goods-intro">
-                                <li>分辨率：1920*1080(FHD)</li>
-                                <li>后置摄像头：1200万像素</li>
-                                <li>前置摄像头：500万像素</li>
-                                <li>核 数：其他</li>
-                                <li>频 率：以官网信息为准</li>
-                                <li>品牌： Apple</li>
-                                <li>商品名称：APPLEiPhone 6s Plus</li>
-                                <li>商品编号：1861098</li>
-                                <li>商品毛重：0.51kg</li>
-                                <li>商品产地：中国大陆</li>
-                                <li>热点：指纹识别，Apple Pay，金属机身，拍照神器</li>
-                                <li>系统：苹果（IOS）</li>
-                                <li>像素：1000-1600万</li>
-                                <li>机身内存：64GB</li>
-                            </ul>
-                            <div class="intro-detail">
-                                <img src="./images/intro01.png" />
-                                <img src="./images/intro02.png" />
-                                <img src="./images/intro03.png" />
-                            </div>
-                        </div>
-                        <div id="two" class="tab-pane">
-                            <p>规格与包装</p>
-                        </div>
-                        <div id="three" class="tab-pane">
-                            <p>售后保障</p>
-                        </div>
-                        <div id="four" class="tab-pane">
-                            <p>商品评价</p>
-                        </div>
-                        <div id="five" class="tab-pane">
-                            <p>手机社区</p>
-                        </div>
-                    </div>
+                    <components :is="componentName"></components>
+                    <!--                    <Common></Common>-->
+                    <!--                  <GoodsInfo></GoodsInfo>-->
                 </div>
             </div>
         </section>
@@ -339,15 +293,36 @@
 <script>
 import ImageList from "./ImageList/ImageList";
 import Zoom from "./Zoom/Zoom";
-import { mapGetters } from "vuex";
+import Common from "./Common";
+import GoodsInfo from "@/pages/Detail/goodsInfo";
+import { mapGetters, mapState } from "vuex";
 
 export default {
     name: "Detail",
     data() {
         //购买产品的个数
-        return { skuNum: 1 };
+        return {
+            skuNum: 1,
+            componentName: "goodsInfo",
+            activeIndex: 0,
+            comData: [
+                {
+                    name: "商品详情",
+                    componentsName: "goodsInfo",
+                },
+                {
+                    name: "评论",
+                    componentsName: "Common",
+                },
+            ],
+        };
     },
     methods: {
+        liClick(item, index) {
+            // console.log( item.componentsName)
+            this.componentName = item.componentsName;
+            this.activeIndex = index;
+        },
         changeSkuSum(event) {
             //用户输入进来的文本*1
             let value = event.target.value * 1;
@@ -365,7 +340,7 @@ export default {
                     skuId: this.$route.params.skuid,
                     skuNum: this.skuNum,
                 });
-                sessionStorage.setItem('SKUINFO',JSON.stringify(this.skuInfo))
+                sessionStorage.setItem("SKUINFO", JSON.stringify(this.skuInfo));
                 //成功后进行路由的跳转
                 this.$router.push({ name: "addcartsuccess", query: { skuNum: this.skuNum } });
             } catch (error) {
@@ -377,6 +352,8 @@ export default {
     components: {
         ImageList,
         Zoom,
+        Common,
+        GoodsInfo,
     },
     mounted() {
         //派发action获取产品详情的信息
@@ -384,6 +361,9 @@ export default {
     },
     computed: {
         ...mapGetters(["categoryView", "skuInfo"]),
+        ...mapState({
+            goodId: (state) => state.search.goodId,
+        }),
         //给子组件的数据
         skuImageList() {
             return this.skuInfo.skuImageList || [];
@@ -467,6 +447,7 @@ export default {
                         }
 
                         .remark {
+                            font-size: 14px;
                             float: right;
                         }
                     }
@@ -709,7 +690,6 @@ export default {
         .detail {
             width: 980px;
             float: right;
-
             .fitting {
                 border: 1px solid #ddd;
                 margin-bottom: 15px;
@@ -829,6 +809,9 @@ export default {
                     overflow: hidden;
 
                     li {
+                        cursor: pointer;
+                        line-height: 40px;
+                        width: 86px;
                         float: left;
 
                         & + li > a {
@@ -853,32 +836,6 @@ export default {
                             background: #fcfcfc;
                             border-top: 1px solid #ddd;
                             border-bottom: 1px solid #ddd;
-                        }
-                    }
-                }
-
-                .tab-content {
-                    .tab-pane {
-                        display: none;
-
-                        &.active {
-                            display: block;
-                        }
-
-                        &:nth-child(1) {
-                            .goods-intro {
-                                padding-left: 10px;
-
-                                li {
-                                    margin: 10px 0;
-                                }
-                            }
-
-                            .intro-detail {
-                                img {
-                                    width: 100%;
-                                }
-                            }
                         }
                     }
                 }

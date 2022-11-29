@@ -82,6 +82,9 @@ export default {
             text-align: right;
             padding: 10px 10px 0 15px;
             float: left;
+          display:flex;
+          justify-content: center;
+          align-items: center;
         }
 
         .value {

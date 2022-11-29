@@ -29,7 +29,6 @@ const actions = {
     //获取热门商品列表
     async getGoodsHot({ commit }) {
         let result = await reqGetGoodsHot();
-        console.log(result);
         if (result.code == 200) {
             commit("GETGOODSHOT", result.data);
         }

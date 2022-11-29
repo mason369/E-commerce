@@ -3,7 +3,7 @@ import requests from "./request";
 //引入mock
 import mockRequest from "./mockRequest";
 //引入后端接口
-import localRequest from "./localRequest";
+// import localRequest from "./localRequest";
 
 //三级联动接口
 export const reqCategoryList = () => requests({ url: "/product/getBaseCategoryList", method: "get" });
@@ -52,7 +52,7 @@ export const reqUserInfo = () =>requests({ url:'/user/passport/auth/getUserInfo'
 export  const reqAddressInfo=() => requests({ url:'/user/userAddress/auth/findUserAddressList',method:'get'})
 
 //获取热门商品列表 TODO
-export const reqGetGoodsHot=()=>localRequest({ url:'/index/show-shopping',method:'get'})
+export const reqGetGoodsHot=()=>mockRequest({ url:'/goodsList',method:'get'})
 
 //获取商品清单
 export const reqOrderInfo=() => requests({ url:'/order/auth/trade',method:'get'})

@@ -23,7 +23,7 @@
                     <div class="content">
                         <form>
                             <div class="input-text clearFix">
-                                <input type="text" placeholder="邮箱" v-model="phone" />
+                                <input type="text" placeholder="手机" v-model="phone" />
                                 <font-awesome-icon icon="fas fa-user" />
                             </div>
                             <div class="input-text clearFix">

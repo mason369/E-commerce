@@ -21,6 +21,11 @@ const mutations = {
     GETSEARCHLIST(state, searchList) {
         state.searchList = searchList;
     },
+
+    SetGoodsId(state,value){
+        state.goodId = value
+        console.log("goodsid",value)
+    }
 };
 
 // //准备state(数据) 存储数据
@@ -28,6 +33,7 @@ const mutations = {
 const state = {
     // 仓库初始状态
     searchList: {},
+    goodId:0,
 };
 
 // //准备getters用于加工state，将其共享于各个组件当中

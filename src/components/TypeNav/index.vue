@@ -117,20 +117,18 @@ export default {
 }
 
 .type-nav {
-
     .container {
         width: 1200px;
         margin: 0 auto;
         display: flex;
         position: relative;
 
-
         .sort {
             position: absolute;
             left: 0;
             top: 47px;
-            width: 172px;
-            height: 480px;
+            width: 180px;
+            height: 478px;
             position: absolute;
             background: #fafafa;
             z-index: 999;

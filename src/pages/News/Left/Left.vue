@@ -1,8 +1,8 @@
 <template>
     <div class="left">
         <div class="news">
-           <div class="photo">
-                <img src="../images/新闻.jpeg" alt="">
+            <div class="photo">
+                <img src="../images/新闻.jpeg" alt="" />
             </div>
             <div class="na-detail">
                 <div class="news-title">
@@ -19,8 +19,8 @@
             </div>
         </div>
         <div class="news">
-           <div class="photo">
-                <img src="../images/news2.jpeg" alt="">
+            <div class="photo">
+                <img src="../images/news2.jpeg" alt="" />
             </div>
             <div class="na-detail">
                 <div class="news-title">
@@ -37,8 +37,8 @@
             </div>
         </div>
         <div class="news">
-           <div class="photo">
-                <img src="../images/news3.png" alt="">
+            <div class="photo">
+                <img src="../images/news3.png" alt="" />
             </div>
             <div class="na-detail">
                 <div class="news-title">
@@ -54,9 +54,9 @@
                 </div>
             </div>
         </div>
-         <div class="news">
-           <div class="photo">
-                <img src="../images/news4.jpeg" alt="">
+        <div class="news">
+            <div class="photo">
+                <img src="../images/news4.jpeg" alt="" />
             </div>
             <div class="na-detail">
                 <div class="news-title">
@@ -73,8 +73,8 @@
             </div>
         </div>
         <div class="news">
-           <div class="photo">
-                <img src="../images/news5.jpeg" alt="">
+            <div class="photo">
+                <img src="../images/news5.jpeg" alt="" />
             </div>
             <div class="na-detail">
                 <div class="news-title">
@@ -91,8 +91,8 @@
             </div>
         </div>
         <div class="news">
-           <div class="photo">
-                <img src="../images/news6.jpeg" alt="">
+            <div class="photo">
+                <img src="../images/news6.jpeg" alt="" />
             </div>
             <div class="na-detail">
                 <div class="news-title">
@@ -109,8 +109,8 @@
             </div>
         </div>
         <div class="news">
-           <div class="photo">
-                <img src="../images/news7.jpeg" alt="">
+            <div class="photo">
+                <img src="../images/news7.jpeg" alt="" />
             </div>
             <div class="na-detail">
                 <div class="news-title">
@@ -136,12 +136,11 @@ export default {};
 <style lang="scss" scoped>
 .left {
     width: 650px;
-    margin-left: 50px;   
 }
-.news{
+.news {
     border-bottom: 1px solid #eee;
     padding: 15px 0;
-display: flex;
+    display: flex;
     width: 650px;
     height: 90px;
 }
@@ -163,7 +162,7 @@ display: flex;
 
     .keywords {
         border-right: 1.5px solid #bbb;
-    
+
         a {
             margin: 5px;
         }
@@ -185,11 +184,11 @@ display: flex;
 //     border-bottom: 1px solid #eee;
 //     padding: 15px 0;
 // }
-.photo img{
+.photo img {
     width: 140px;
     height: 88px;
 }
-.na-detail{
+.na-detail {
     width: 445px;
     margin-left: 15px;
     float: left;
