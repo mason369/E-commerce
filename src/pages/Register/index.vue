@@ -44,61 +44,64 @@
 
 <script>
 export default {
-    name: "Register",
-    data() {
-        return {
-            //收集表单数据--手机号
-            phone: "",
-            // 验证码
-            code: "",
-            //密码
-            password: "",
-            //确认密码
-            confirmPassword: "",
-            //是否同意
-            agree: true,
-        };
-    },
-    methods: {
-        submitForm(formName) {
-            this.$refs[formName].validate((valid) => {
-                if (valid) {
-                    alert("submit!");
-                } else {
-                    console.log("error submit!!");
-                    return false;
-                }
-            });
-        },
+	name: "Register",
+	data() {
+		return {
+			//收集表单数据--手机号
+			phone          : "",
+			// 验证码
+			code           : "",
+			//密码
+			password       : "",
+			//确认密码
+			confirmPassword: "",
+			//是否同意
+			agree          : true
+		};
+	},
+	methods: {
+		submitForm(formName) {
+			this.$refs[formName].validate((valid) => {
+				if (valid) {
+					alert("submit!");
+				}
+				else {
+					console.log("error submit!!");
+					return false;
+				}
+			});
+		},
 
-        async getCode() {
-            try {
-                //如果或取到验证码
-                const { phone } = this;
-                phone && (await this.$store.dispatch("getCode", phone));
-                //将组件的code属性值变为仓库中验证码
-                this.code = this.$store.state.user.code;
-            } catch (error) {}
-        },
-        //用户注册
-        async userRegister() {
-            try {
-                //如果成功----路由跳转
-                const { phone, code, password, confirmPassword } = this;
-                phone &&
+		async getCode() {
+			try {
+				//如果或取到验证码
+				const { phone } = this;
+				phone && (await this.$store.dispatch("getCode", phone));
+				//将组件的code属性值变为仓库中验证码
+				this.code = this.$store.state.user.code;
+			}
+			catch (error) {}
+		},
+		//用户注册
+		async userRegister() {
+			try {
+				//如果成功----路由跳转
+				const { phone, code, password, confirmPassword } = this;
+				phone &&
                     code &&
                     password == confirmPassword &&
                     (await this.$store.dispatch("userRegister", {
-                        phone,
-                        code,
-                        password,
+                    	phone,
+                    	code,
+                    	password
                     }));
-                this.$router.push("/login");
-            } catch (error) {
-                alert(error.message);
-            }
-        },
-    },
+				this.$router.push("/login");
+			}
+			catch (error) {
+				alert(error.message);
+			}
+		}
+	}
 };
 </script>
 

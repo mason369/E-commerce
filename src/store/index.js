@@ -17,12 +17,12 @@ import user from "./user";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-    modules: {
-        home,
-        search,
-        detail,
-        shopcart,
-        trade,
-        user
-    },
+	modules: {
+		home,
+		search,
+		detail,
+		shopcart,
+		trade,
+		user
+	}
 });

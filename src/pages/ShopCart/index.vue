@@ -88,130 +88,135 @@ import { mapGetters } from "vuex";
 import throttle from "lodash/throttle";
 
 export default {
-    name: "ShopCart",
-    mounted() {
-        this.getData();
-    },
-    //获取个人购物车数据
-    methods: {
-        getData() {
-            this.$store.dispatch("getCartList");
-        },
-        //修改购物车商品个数(节流)
-        handler: throttle(async function (type, disNum, cart) {
-            //type:为了区分这三个元素
-            //disNum形参:+变化量（1) -变化量（-1)input最终的个数（并不是变化量)
-            //cart:哪一个产品【身 上有id】
-            switch (type) {
-                case "add":
-                    //带给服务器的变量
-                    disNum = 1;
-                    break;
-                case "minus":
-                    // 判断产品的个数大于1，才可以传递给服务器-1
-                    disNum = cart.skuNum > 1 ? -1 : 0;
-                    break;
-                case "change":
-                    //用户输入进来的最终量，非法的（带有汉字),带给服务器数字
-                    // if (isNaN(disNum) || disNum < 1) {
-                    //     disNum = 1;
-                    // } else {
-                    //   //属于正常情况（小数:取正），带给服务器变化的量用户输入进来的–产品的起始个数
-                    //   disNum = parseInt(disNum) - cart.skuNum;
-                    // }
-                    disNum = isNaN(disNum) || disNum < 1 ? 1 : parseInt(disNum) - cart.skuNum;
-                    break;
-            }
-            //派发action
-            try {
-                await this.$store.dispatch("addOrUpdateShopCart", { skuId: cart.skuId, skuNum: disNum });
-                //再一次获取服务器最新的数据进行展示
-                this.getData();
-            } catch (error) {
-                return error;
-            }
-        }, 1000),
-        //删除购物车商品操作
-        async deleteCartById(cart) {
-            try {
-                //如果删除成功再次发请求获取新的数据进行展示
-                await this.$store.dispatch("deleteCartListBySkuId", cart.skuId);
-                this.getData();
-            } catch (error) {
-                console.log("删除商品失败!");
-            }
-        },
-        //修改购物车商品选中状态
-        async updateChecked(cart, event) {
-            try {
-                //如果修改数据成功，再次获取服务器数据（购物车）
-                //带给服务器的参数isChecked，不是布尔值，应该是0|1
-                let isChecked = event.target.checked ? "1" : "0";
-                await this.$store.dispatch("updateCheckedById", {
-                    skuId: cart.skuId,
-                    isChecked,
-                });
-                this.getData();
-            } catch (error) {
-                //如果失败提示
-                alert(error.message);
-            }
-        },
-        //删除全部选中的商品
-        async deleteAllCheckCart() {
-            try {
-                //派发action
-                await this.$store.dispatch("deleteAllCheckedCart");
-                this.getData();
-                //再发请求获取购物车列表
-            } catch (error) {
-                alert(error.message);
-            }
-        },
-        //修改全部产品的选中状态
-        async updateAllCartChecked() {
-            try {
-                let isChecked = event.target.checked ? "1" : 0;
-                //派发action
-                await this.$store.dispatch("updateAllCartIsChecked", isChecked);
-                this.getData();
-            } catch (error) {
-                alert(error.message);
-            }
-        },
-    },
-    computed: {
-        ...mapGetters(["cartList"]),
-        //购物车数据
-        cartInfoList() {
-            return this.cartList.cartInfoList || [];
-        },
-        //计算总价
-        totalPrice() {
-            let sum = 0;
-            this.cartInfoList.forEach((item) => {
-                //选中的才计算总价
-                item.isChecked == 1 ? (sum += item.skuNum * item.skuPrice) : "";
-            });
-            //返回总价
-            return sum;
-        },
-        //计算全选
-        isAllCheck() {
-            //判断底部复选框是否勾选【全部产品都选中,才勾选】
-            return this.cartInfoList.every((item) => item.isChecked == 1);
-        },
-        cartCheckedNum() {
-            let PromiseAll = 0;
-            this.cartInfoList.forEach((cartInfoList) => {
-                let promise = cartInfoList.isChecked == 1 ? 1 : 0;
-                //将每一次返回的Promise添加到数组当中
-                PromiseAll += promise;
-            });
-            //将相加的总和返回
-            return PromiseAll;
-        },
-    },
+	name: "ShopCart",
+	mounted() {
+		this.getData();
+	},
+	//获取个人购物车数据
+	methods: {
+		getData() {
+			this.$store.dispatch("getCartList");
+		},
+		//修改购物车商品个数(节流)
+		handler: throttle(async function(type, disNum, cart) {
+			//type:为了区分这三个元素
+			//disNum形参:+变化量（1) -变化量（-1)input最终的个数（并不是变化量)
+			//cart:哪一个产品【身 上有id】
+			switch (type) {
+			case "add":
+				//带给服务器的变量
+				disNum = 1;
+				break;
+			case "minus":
+				// 判断产品的个数大于1，才可以传递给服务器-1
+				disNum = cart.skuNum > 1 ? -1 : 0;
+				break;
+			case "change":
+				//用户输入进来的最终量，非法的（带有汉字),带给服务器数字
+				// if (isNaN(disNum) || disNum < 1) {
+				//     disNum = 1;
+				// } else {
+				//   //属于正常情况（小数:取正），带给服务器变化的量用户输入进来的–产品的起始个数
+				//   disNum = parseInt(disNum) - cart.skuNum;
+				// }
+				disNum = isNaN(disNum) || disNum < 1 ? 1 : parseInt(disNum) - cart.skuNum;
+				break;
+			}
+			//派发action
+			try {
+				await this.$store.dispatch("addOrUpdateShopCart", { skuId: cart.skuId, skuNum: disNum });
+				//再一次获取服务器最新的数据进行展示
+				this.getData();
+			}
+			catch (error) {
+				return error;
+			}
+		}, 1000),
+		//删除购物车商品操作
+		async deleteCartById(cart) {
+			try {
+				//如果删除成功再次发请求获取新的数据进行展示
+				await this.$store.dispatch("deleteCartListBySkuId", cart.skuId);
+				this.getData();
+			}
+			catch (error) {
+				console.log("删除商品失败!");
+			}
+		},
+		//修改购物车商品选中状态
+		async updateChecked(cart, event) {
+			try {
+				//如果修改数据成功，再次获取服务器数据（购物车）
+				//带给服务器的参数isChecked，不是布尔值，应该是0|1
+				let isChecked = event.target.checked ? "1" : "0";
+				await this.$store.dispatch("updateCheckedById", {
+					skuId: cart.skuId,
+					isChecked
+				});
+				this.getData();
+			}
+			catch (error) {
+				//如果失败提示
+				alert(error.message);
+			}
+		},
+		//删除全部选中的商品
+		async deleteAllCheckCart() {
+			try {
+				//派发action
+				await this.$store.dispatch("deleteAllCheckedCart");
+				this.getData();
+				//再发请求获取购物车列表
+			}
+			catch (error) {
+				alert(error.message);
+			}
+		},
+		//修改全部产品的选中状态
+		async updateAllCartChecked() {
+			try {
+				let isChecked = event.target.checked ? "1" : 0;
+				//派发action
+				await this.$store.dispatch("updateAllCartIsChecked", isChecked);
+				this.getData();
+			}
+			catch (error) {
+				alert(error.message);
+			}
+		}
+	},
+	computed: {
+		...mapGetters(["cartList"]),
+		//购物车数据
+		cartInfoList() {
+			return this.cartList.cartInfoList || [];
+		},
+		//计算总价
+		totalPrice() {
+			let sum = 0;
+			this.cartInfoList.forEach((item) => {
+				//选中的才计算总价
+				item.isChecked == 1 ? (sum += item.skuNum * item.skuPrice) : "";
+			});
+			//返回总价
+			return sum;
+		},
+		//计算全选
+		isAllCheck() {
+			//判断底部复选框是否勾选【全部产品都选中,才勾选】
+			return this.cartInfoList.every((item) => item.isChecked == 1);
+		},
+		cartCheckedNum() {
+			let PromiseAll = 0;
+			this.cartInfoList.forEach((cartInfoList) => {
+				let promise = cartInfoList.isChecked == 1 ? 1 : 0;
+				//将每一次返回的Promise添加到数组当中
+				PromiseAll += promise;
+			});
+			//将相加的总和返回
+			return PromiseAll;
+		}
+	}
 };
 </script>
 

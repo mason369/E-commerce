@@ -10,7 +10,7 @@ Vue.use(VWave)
 import router from "@/router";
 
 //引入swiper
-import 'swiper/css/swiper.css'
+import "swiper/css/swiper.css"
 
 // //图片懒加载cnpm i vue-lazyload
 // import VueLazyload from 'vue-lazyload'
@@ -22,7 +22,7 @@ import 'swiper/css/swiper.css'
 // })
 
 //统一接口api文件夹里面全部请求函数
-import * as API from '@/api'
+import * as API from "@/api"
 
 //三级联动全局组件
 import TypeNav from "@/components/TypeNav";
@@ -31,7 +31,7 @@ Vue.component(TypeNav.name, TypeNav);
 import Pagination from "@/components/Pagination";
 Vue.component(Pagination.name, Pagination);
 //导航栏
-import Nav from '@/components/Nav';
+import Nav from "@/components/Nav";
 Vue.component(Nav.name, Nav);
 
 //引入vuex仓库
@@ -51,73 +51,75 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 //按需引入图标字体
 //fas风格
-import { faUser ,
-  faArrowUp,
-  faArrowDown,
-  faCircleCheck,
-  faEyeSlash,
-  faPhone,
-  faMobile,
-  faUsers,
-  faComments,
-  faBell,
-  faCartShopping,
-  faCommentDots,
-  faGlobe,
-  faChevronDown,
-  faRankingStar,
-  faHandHoldingHand,
-  faHeadset,
-  faWarehouse,
-  faCreditCard,
+import {
+	faUser,
+	faArrowUp,
+	faArrowDown,
+	faCircleCheck,
+	faEyeSlash,
+	faPhone,
+	faMobile,
+	faUsers,
+	faComments,
+	faBell,
+	faCartShopping,
+	faCommentDots,
+	faGlobe,
+	faChevronDown,
+	faRankingStar,
+	faHandHoldingHand,
+	faHeadset,
+	faWarehouse,
+	faCreditCard
 } from "@fortawesome/free-solid-svg-icons";
 // fab风格
-import { faWeixin,
-  faWeibo,
-  faQq,
-  faGithub,
-  faWpforms,
+import {
+	faWeixin,
+	faWeibo,
+	faQq,
+	faGithub,
+	faWpforms
 
 } from "@fortawesome/free-brands-svg-icons";
 //在核心依赖中加入这个引入的图标
 library.add(faUser,
-  faWeixin,
-  faArrowUp,
-  faArrowDown,
-  faCircleCheck,
-  faEyeSlash,
-  faWeibo,
-  faQq,
-  faGithub,
-  faPhone,
-  faMobile,
-  faUsers,
-  faComments,
-  faBell,
-  faCartShopping,
-  faCommentDots,
-  faGlobe,
-  faChevronDown,
-  faRankingStar,
-  faHandHoldingHand,
-  faHeadset,
-  faWarehouse,
-  faCreditCard,
-  faWpforms,
+	faWeixin,
+	faArrowUp,
+	faArrowDown,
+	faCircleCheck,
+	faEyeSlash,
+	faWeibo,
+	faQq,
+	faGithub,
+	faPhone,
+	faMobile,
+	faUsers,
+	faComments,
+	faBell,
+	faCartShopping,
+	faCommentDots,
+	faGlobe,
+	faChevronDown,
+	faRankingStar,
+	faHandHoldingHand,
+	faHeadset,
+	faWarehouse,
+	faCreditCard,
+	faWpforms
 );
 
 //关闭生产提示
 Vue.config.productionTip = false;
 
 new Vue({
-    render: (h) => h(App),
-    //全局事件总线$bus配置
-    beforeCreate() {
-        Vue.prototype.$bus = this;
-        Vue.prototype.$API=API
-    },
-    //注册路由
-    router,
-    //注册vuex仓库
-    store,
+	render: (h) => h(App),
+	//全局事件总线$bus配置
+	beforeCreate() {
+		Vue.prototype.$bus = this;
+		Vue.prototype.$API = API
+	},
+	//注册路由
+	router,
+	//注册vuex仓库
+	store
 }).$mount("#app");

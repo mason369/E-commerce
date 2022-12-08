@@ -47,14 +47,12 @@
                     <div class="tab-list">
                         <ul>
                             <li><a href="#" class="style-red">热门</a>|</li>
-                            <li><a href="#">脐橙</a>|</li>
-                            <li><a href="#">土豆</a>|</li>
-                            <li><a href="#">蜜饯</a>|</li>
-                            <li><a href="#">香蕉</a>|</li>
-                            <li><a href="#">雪莲果</a>|</li>
-                            <li><a href="#">哈密瓜</a>|</li>
-                            <li><a href="#">新奇特</a>|</li>
-                            <li><a href="#">高端蔬菜</a></li>
+                            <li><a href="#">特色牛肉</a>|</li>
+                            <li><a href="#">广西特产</a>|</li>
+                            <li><a href="#">四川特产</a>|</li>
+                            <li><a href="#">特色羊肉</a>|</li>
+                            <li><a href="#">休闲食品</a>|</li>
+                            <li><a href="#">特色牛肉干</a>|</li>
                         </ul>
                     </div>
                 </div>
@@ -63,6 +61,7 @@
                         <li class="w209">
                             <ul class="tab-con-list">
                                 <li>
+<<<<<<< Updated upstream
                                     <a href="#">新鲜蔬菜</a>
                                 </li>
                                 <li>
@@ -79,12 +78,30 @@
                                 </li>
                                 <li>
                                     <a href="#">特色红薯</a>
+=======
+                                    <a href="#">内蒙古特色产品</a>
+                                </li>
+                                <li>
+                                    <a href="#">新疆特色产品</a>
+                                </li>
+                                <li>
+                                    <a href="#">湖北特色产品</a>
+                                </li>
+                                <li>
+                                    <a href="#">广西特色产品</a>
+                                </li>
+                                <li>
+                                    <a href="#">云南特色产品</a>
+                                </li>
+                                <li>
+                                    <a href="#">四川特色产品</a>
+>>>>>>> Stashed changes
                                 </li>
                             </ul>
                             <div class="img1-activity-box">
-                                <span>福建蜜薯</span>
-                                <p>抽奖送好礼</p>
-                                <img src="./images/福建蜜薯.jpg" alt="" />
+                                <span>牛肉大礼包</span>
+                                <p>无肉不欢</p>
+                                <img src="./images/牛礼包.jpg" alt="" />
                             </div>
                         </li>
                         <li class="w329">
@@ -99,41 +116,41 @@
                         <li class="w219">
                             <div class="tab-con-item">
                                 <a href="#">
-                                    <span>满299减299！</span>
-                                    <p>美食节一分钱抢购！</p>
-                                    <img src="./images/湖南有机黄瓜.jpg" alt="" />
+                                    <span>满299减30！</span>
+                                    <p>云南特产</p>
+                                    <img src="./images/4.jpg" alt="" />
                                 </a>
                             </div>
                             <div class="tab-con-item">
                                 <a href="#">
-                                    <span>满299减299！</span>
+                                    <span>满299减30！</span>
                                     <p>美食节一分钱抢购！</p>
-                                    <img src="./images/新疆哈密瓜.jpg" alt="" />
+                                    <img src="./images/2.jpg" alt="" />
                                 </a>
                             </div>
                         </li>
                         <li class="w220">
                             <div class="tab-con-item">
                                 <a href="#">
-                                    <span>满299减299！</span>
-                                    <p>云南雪莲果</p>
-                                    <img class="yunnanxuelianguo" src="./images/云南雪莲果.jpg" alt="" />
+                                    <span>满299减30！</span>
+                                    <p>四川腊肉</p>
+                                    <img class="yunnanxuelianguo" src="./images/3.jpg" alt="" />
                                 </a>
                             </div>
                         </li>
                         <li class="w220">
                             <div class="tab-con-item">
                                 <a href="#">
-                                    <span>满299减299！</span>
-                                    <p>云南雪莲果</p>
-                                    <img src="./images/四川韭菜.jpg" alt="" />
+                                    <span>满299减30！</span>
+                                    <p>新鲜牛肉</p>
+                                    <img src="./images/牛肉.jpeg" alt="" />
                                 </a>
                             </div>
                             <div class="tab-con-item">
                                 <a href="#">
-                                    <span>满299减299！</span>
-                                    <p>云南雪莲果</p>
-                                    <img src="./images/新鲜脐橙.jpg" alt="" />
+                                    <span>满299减30！</span>
+                                    <p>无肉不欢</p>
+                                    <img src="./images/羊.jpg" alt="" />
                                 </a>
                             </div>
                         </li>
@@ -153,14 +170,14 @@
                     <div class="tab-list">
                         <ul>
                             <li><a href="#" class="style-red">热门</a>|</li>
-                            <li><a href="#">脐橙</a>|</li>
-                            <li><a href="#">土豆</a>|</li>
-                            <li><a href="#">蜜饯</a>|</li>
-                            <li><a href="#">香蕉</a>|</li>
-                            <li><a href="#">雪莲果</a>|</li>
-                            <li><a href="#">哈密瓜</a>|</li>
-                            <li><a href="#">新奇特</a>|</li>
-                            <li><a href="#">高端蔬菜</a></li>
+                            <li><a href="#">鱼类</a>|</li>
+                            <li><a href="#">虾类</a>|</li>
+                            <li><a href="#">蟹类</a>|</li>
+                            <li><a href="#">贝类</a>|</li>
+                            <li><a href="#">海参</a>|</li>
+                            <li><a href="#">海产干货</a>|</li>
+                            <li><a href="#">特色海产</a>|</li>
+                            <li><a href="#">知名品牌</a></li>
                         </ul>
                     </div>
                 </div>
@@ -169,6 +186,7 @@
                         <li class="w209">
                             <ul class="tab-con-list">
                                 <li>
+<<<<<<< Updated upstream
                                     <a href="#">新鲜蔬菜</a>
                                 </li>
                                 <li>
@@ -185,12 +203,30 @@
                                 </li>
                                 <li>
                                     <a href="#">特色红薯</a>
+=======
+                                    <a href="#">三文鱼</a>
+                                </li>
+                                <li>
+                                    <a href="#">北极甜虾</a>
+                                </li>
+                                <li>
+                                    <a href="#">帝王蟹</a>
+                                </li>
+                                <li>
+                                    <a href="#">干贝</a>
+                                </li>
+                                <li>
+                                    <a href="#">鱼类</a>
+                                </li>
+                                <li>
+                                    <a href="#">生蚝</a>
+>>>>>>> Stashed changes
                                 </li>
                             </ul>
                             <div class="img1-activity-box">
-                                <span>福建蜜薯</span>
-                                <p>抽奖送好礼</p>
-                                <img src="./images/福建蜜薯.jpg" alt="" />
+                                <span>北极甜虾</span>
+                                <p>新鲜直达</p>
+                                <img src="./images/虾 拷贝.jpg" alt="" />
                             </div>
                         </li>
                         <li class="w329">
@@ -205,41 +241,41 @@
                         <li class="w219">
                             <div class="tab-con-item">
                                 <a href="#">
-                                    <span>满299减299！</span>
+                                    <span>满299减30！</span>
                                     <p>美食节一分钱抢购！</p>
-                                    <img src="./images/湖南有机黄瓜.jpg" alt="" />
+                                    <img src="./images/北极甜虾 拷贝.jpg" alt="" />
                                 </a>
                             </div>
                             <div class="tab-con-item">
                                 <a href="#">
-                                    <span>满299减299！</span>
-                                    <p>美食节一分钱抢购！</p>
-                                    <img src="./images/新疆哈密瓜.jpg" alt="" />
+                                    <span>满299减30！</span>
+                                    <p>品质保证 干冰直达</p>
+                                    <img src="./images/带鱼 拷贝.jpg" alt="" />
                                 </a>
                             </div>
                         </li>
                         <li class="w220">
                             <div class="tab-con-item">
                                 <a href="#">
-                                    <span>满299减299！</span>
-                                    <p>云南雪莲果</p>
-                                    <img class="yunnanxuelianguo" src="./images/云南雪莲果.jpg" alt="" />
+                                    <span>满299减30！</span>
+                                    <p>新鲜三文鱼</p>
+                                    <img class="yunnanxuelianguo" src="./images/三文鱼 拷贝.jpg" alt="" />
                                 </a>
                             </div>
                         </li>
                         <li class="w220">
                             <div class="tab-con-item">
                                 <a href="#">
-                                    <span>满299减299！</span>
-                                    <p>云南雪莲果</p>
-                                    <img src="./images/四川韭菜.jpg" alt="" />
+                                    <span>满299减30！</span>
+                                    <p>鲜活乳山生蚝</p>
+                                    <img src="./images/生蚝 拷贝.jpg" alt="" />
                                 </a>
                             </div>
                             <div class="tab-con-item">
                                 <a href="#">
-                                    <span>满299减299！</span>
-                                    <p>云南雪莲果</p>
-                                    <img src="./images/新鲜脐橙.jpg" alt="" />
+                                    <span>满299减30！</span>
+                                    <p>鲜活帝王蟹</p>
+                                    <img src="./images/帝王蟹 拷贝.jpg" alt="" />
                                 </a>
                             </div>
                         </li>
@@ -259,14 +295,14 @@
                     <div class="tab-list">
                         <ul>
                             <li><a href="#" class="style-red">热门</a>|</li>
-                            <li><a href="#">脐橙</a>|</li>
-                            <li><a href="#">土豆</a>|</li>
-                            <li><a href="#">蜜饯</a>|</li>
-                            <li><a href="#">香蕉</a>|</li>
-                            <li><a href="#">雪莲果</a>|</li>
-                            <li><a href="#">哈密瓜</a>|</li>
-                            <li><a href="#">新奇特</a>|</li>
-                            <li><a href="#">高端蔬菜</a></li>
+                            <li><a href="#">叶菜类</a>|</li>
+                            <li><a href="#">鲜菌菇</a>|</li>
+                            <li><a href="#">茄果瓜</a>|</li>
+                            <li><a href="#">半加工菜</a>|</li>
+                            <li><a href="#">热销水果</a>|</li>
+                            <li><a href="#">时令水果</a>|</li>
+                            <li><a href="#">热带鲜果</a>|</li>
+                            <li><a href="#">新奇特</a></li>
                         </ul>
                     </div>
                 </div>
@@ -275,6 +311,7 @@
                         <li class="w209">
                             <ul class="tab-con-list">
                                 <li>
+<<<<<<< Updated upstream
                                     <a href="#">新鲜蔬菜</a>
                                 </li>
                                 <li>
@@ -291,12 +328,30 @@
                                 </li>
                                 <li>
                                     <a href="#">特色红薯</a>
+=======
+                                    <a href="#">优选100</a>
+                                </li>
+                                <li>
+                                    <a href="#">东家菜</a>
+                                </li>
+                                <li>
+                                    <a href="#">免费试吃</a>
+                                </li>
+                                <li>
+                                    <a href="#">新鲜水果</a>
+                                </li>
+                                <li>
+                                    <a href="#">蔬菜蛋品</a>
+                                </li>
+                                <li>
+                                    <a href="#">水培蔬菜</a>
+>>>>>>> Stashed changes
                                 </li>
                             </ul>
                             <div class="img1-activity-box">
-                                <span>福建蜜薯</span>
+                                <span>进口金枕榴莲</span>
                                 <p>抽奖送好礼</p>
-                                <img src="./images/福建蜜薯.jpg" alt="" />
+                                <img src="./images/榴莲.jpg" alt="" />
                             </div>
                         </li>
                         <li class="w329">
@@ -311,41 +366,41 @@
                         <li class="w219">
                             <div class="tab-con-item">
                                 <a href="#">
-                                    <span>满299减299！</span>
+                                    <span>满299减30！</span>
                                     <p>美食节一分钱抢购！</p>
-                                    <img src="./images/湖南有机黄瓜.jpg" alt="" />
+                                    <img src="./images/柚子.jpg" alt="" />
                                 </a>
                             </div>
                             <div class="tab-con-item">
                                 <a href="#">
-                                    <span>满299减299！</span>
+                                    <span>满299减30！</span>
                                     <p>美食节一分钱抢购！</p>
-                                    <img src="./images/新疆哈密瓜.jpg" alt="" />
+                                    <img src="./images/茄子.jpg" alt="" />
                                 </a>
                             </div>
                         </li>
                         <li class="w220">
                             <div class="tab-con-item">
                                 <a href="#">
-                                    <span>满299减299！</span>
-                                    <p>云南雪莲果</p>
-                                    <img class="yunnanxuelianguo" src="./images/云南雪莲果.jpg" alt="" />
+                                    <span>满299减30！</span>
+                                    <p>果蔬礼盒</p>
+                                    <img class="yunnanxuelianguo" src="./images/果蔬礼盒.jpg" alt="" />
                                 </a>
                             </div>
                         </li>
                         <li class="w220">
                             <div class="tab-con-item">
                                 <a href="#">
-                                    <span>满299减299！</span>
-                                    <p>云南雪莲果</p>
-                                    <img src="./images/四川韭菜.jpg" alt="" />
+                                    <span>满299减30！</span>
+                                    <p>蜜柚</p>
+                                    <img src="./images/西兰花.jpg" alt="" />
                                 </a>
                             </div>
                             <div class="tab-con-item">
                                 <a href="#">
-                                    <span>满299减299！</span>
-                                    <p>云南雪莲果</p>
-                                    <img src="./images/新鲜脐橙.jpg" alt="" />
+                                    <span>满299减30！</span>
+                                    <p>云南鸡纵菌</p>
+                                    <img src="./images/鸡纵菌.jpg" alt="" />
                                 </a>
                             </div>
                         </li>
@@ -487,18 +542,12 @@ import How from "@/pages/Home/How";
 import { mapState } from "vuex";
 
 export default {
-    mounted() {
-        //派发action:通过vuex发起ajax请求，将数据仓储在仓库当中
-        this.$store.dispatch("getFloorBannerList");
-    },
-    computed: {
-        ...mapState({
-            floorBannerList: (state) => state.home.floorBannerList,
-        }),
-    },
-    components: {
-        How,
-    },
+	mounted() {
+		//派发action:通过vuex发起ajax请求，将数据仓储在仓库当中
+		this.$store.dispatch("getFloorBannerList");
+	},
+	computed  : {...mapState({floorBannerList: (state) => state.home.floorBannerList})},
+	components: {How}
 };
 </script>
 

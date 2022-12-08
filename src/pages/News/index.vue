@@ -14,12 +14,12 @@ import Left from "./Left/Left";
 import Nav from "@/components/Nav";
 
 export default {
-    name: "news",
-    components: {
-        Right,
-        Left,
-        Nav,
-    },
+	name      : "news",
+	components: {
+		Right,
+		Left,
+		Nav
+	}
 };
 </script>
 <style lang="scss" scoped>

@@ -56,10 +56,9 @@
 <script>
 
 export default {
-    components: {
-    },
-  mounted(){
-  }
+	components: {},
+	mounted(){
+	}
 };
 </script>
 <style lang="scss" scoped>

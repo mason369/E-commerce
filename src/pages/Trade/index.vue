@@ -3,7 +3,7 @@
         <h3 class="title">填写并核对订单信息</h3>
         <div class="content">
             <h5 class="receive">收件人信息</h5>
-            <div class="address clearFix" v-for="(address, index) in addressInfo" :key="address.id">
+            <div class="address clearFix" v-for="(address) in addressInfo" :key="address.id">
                 <span class="username" :class="{ selected: address.isDefault == 1 }">{{ address.consignee }}</span>
                 <p @click="changeDefault(address, addressInfo)">
                     <span class="s1">{{ address.fullAddress }}</span>
@@ -28,7 +28,7 @@
             </div>
             <div class="detail">
                 <h5>商品清单</h5>
-                <ul class="list clearFix" v-for="(order, index) in orderInfo.detailArrayList" :key="order.skuid">
+                <ul class="list clearFix" v-for="(order) in orderInfo.detailArrayList" :key="order.skuid">
                     <li>
                         <img :src="order.imgUrl" alt="" style="width: 100px; height: 100px;" />
                     </li>
@@ -95,62 +95,63 @@
 import { mapState } from "vuex";
 
 export default {
-    name: "Trade",
-    data() {
-        return {
-            msg: "", //收集买家的留言信息
-            orderId: "", //订单号
-        };
-    },
-    mounted() {
-        this.$store.dispatch("getUserAddress");
-        this.$store.dispatch("getOrderInfo");
-    },
-    computed: {
-        ...mapState({
-            addressInfo: (state) => state.trade.address,
-            orderInfo: (state) => state.trade.orderInfo,
-        }),
-        //将来提交订单最终选中地址
-        userDefaultAddress() {
-            //find:查找数组当中符合条件的元素返回，最为最终结果
-            return this.addressInfo.find((item) => item.isDefault == 1) || {};
-        },
-    },
-    methods: {
-        //修改默认地址
-        changeDefault(address, addressInfo) {
-            addressInfo.forEach((item) => {
-                //全部的为0
-                item.isDefault = 0;
-            });
-            address.isDefault = 1; //点击的为1
-        },
-        //提交订单
-        async submitOrder() {
-            //交易编码
-            let { tradeNo } = this.orderInfo;
-            //其余的六个参数
-            let data = {
-                consignee: this.userDefaultAddress.consignee, //最终收件人的名字
-                consigneeTel: this.userDefaultAddress.phoneNum, //最终收件人的手机号
-                deliveryAddress: this.userDefaultAddress.fullAddress, //收件人的地址
-                paymentWay: "ONLINE", //支付方式
-                orderComment: this.msg, //买家的留言信息
-                orderDetailList: this.orderInfo.detailArrayList, //商品清单
-            };
-            //需要带参数的：tradeNo
-            let result = await this.$API.reqSubmitOrder(tradeNo, data);
-            // console.log(result);
-            if (result.code == 200) {
-                (this.orderId = result.data),
-                    //路由跳转 + 路由传递参数
-                    this.$router.push("/pay?orderId=" + this.orderId);
-            } else {
-                alert(result.data + "不能重复提交订单");
-            }
-        },
-    },
+	name: "Trade",
+	data() {
+		return {
+			msg    : "", //收集买家的留言信息
+			orderId: "" //订单号
+		};
+	},
+	mounted() {
+		this.$store.dispatch("getUserAddress");
+		this.$store.dispatch("getOrderInfo");
+	},
+	computed: {
+		...mapState({
+			addressInfo: (state) => state.trade.address,
+			orderInfo  : (state) => state.trade.orderInfo
+		}),
+		//将来提交订单最终选中地址
+		userDefaultAddress() {
+			//find:查找数组当中符合条件的元素返回，最为最终结果
+			return this.addressInfo.find((item) => item.isDefault == 1) || {};
+		}
+	},
+	methods: {
+		//修改默认地址
+		changeDefault(address, addressInfo) {
+			addressInfo.forEach((item) => {
+				//全部的为0
+				item.isDefault = 0;
+			});
+			address.isDefault = 1; //点击的为1
+		},
+		//提交订单
+		async submitOrder() {
+			//交易编码
+			let { tradeNo } = this.orderInfo;
+			//其余的六个参数
+			let data = {
+				consignee      : this.userDefaultAddress.consignee, //最终收件人的名字
+				consigneeTel   : this.userDefaultAddress.phoneNum, //最终收件人的手机号
+				deliveryAddress: this.userDefaultAddress.fullAddress, //收件人的地址
+				paymentWay     : "ONLINE", //支付方式
+				orderComment   : this.msg, //买家的留言信息
+				orderDetailList: this.orderInfo.detailArrayList //商品清单
+			};
+			//需要带参数的：tradeNo
+			let result = await this.$API.reqSubmitOrder(tradeNo, data);
+			// console.log(result);
+			if (result.code == 200) {
+				(this.orderId = result.data),
+				//路由跳转 + 路由传递参数
+				this.$router.push("/pay?orderId=" + this.orderId);
+			}
+			else {
+				alert(result.data + "不能重复提交订单");
+			}
+		}
+	}
 };
 </script>
 
@@ -361,7 +362,7 @@ align-items: center;
     }
 
     .money {
-        
+
         background-color: rgb(221, 221, 221);
         width: 1200px;
         margin: 20px auto;

@@ -2,7 +2,9 @@
 
 助农电商项目  [Live Demo](https://galaxy-wish-star.github.io/E-commerce/)Tips:由于编译后dist文件夹路径问题部分图片或请求将无法显示
 
-![](https://img.shields.io/badge/%E7%8A%B6%E6%80%81-%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E4%B8%AD-green)
+[//]: # (![]&#40;https://img.shields.io/badge/%E7%8A%B6%E6%80%81-%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E4%B8%AD-green&#41;)
+
+![](https://img.shields.io/badge/%E7%8A%B6%E6%80%81-%E5%AE%8C%E6%88%90-success)
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 [![](https://img.shields.io/crates/l/s)](https://img.shields.io/crates/l/s)
 [![](https://img.shields.io/badge/Vue%2Fcli-%20%5E2%2F%20%5E5.0.8-brightgreen)](https://img.shields.io/badge/Vue%2Fcli-%20%5E2%2F%20%5E5.0.8-brightgreen)

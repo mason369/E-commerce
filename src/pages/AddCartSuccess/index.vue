@@ -30,12 +30,12 @@
 
 <script>
 export default {
-    name: "AddCartSuccess",
-    computed: {
-        skuInfo() {
-            return JSON.parse(sessionStorage.getItem("SKUINFO"));
-        },
-    },
+	name    : "AddCartSuccess",
+	computed: {
+		skuInfo() {
+			return JSON.parse(sessionStorage.getItem("SKUINFO"));
+		}
+	}
 };
 </script>
 

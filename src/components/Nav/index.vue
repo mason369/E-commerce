@@ -6,7 +6,7 @@
         <router-link to="/search" active-class="active" >全部商品分类</router-link>
       <router-link to="/home" active-class="active">首页</router-link>
         <router-link to="/news" active-class="active">农业新闻</router-link>
-        <a>美妆馆</a>
+        <router-link to="/school" active-class="active">农技学堂</router-link>
         <a>全球购</a>
         <a>闪购</a>
         <a>全球购</a>
@@ -16,9 +16,7 @@
 </template>
 
 <script>
-export default {
-    name: "Nav",
-};
+export default {name: "Nav"};
 </script>
 
 <style lang="scss" scoped>

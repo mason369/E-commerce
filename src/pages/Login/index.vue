@@ -38,6 +38,7 @@
                                 <span class="forget">忘记密码？</span>
                             </div>
                             <button class="btn" @click.prevent="getLogin">登&nbsp;&nbsp;录</button>
+                          <p>admin账号:13700000000密码:111111</p>
                         </form>
 
                         <div class="call clearFix">
@@ -66,28 +67,29 @@
 
 <script>
 export default {
-    name: "Login",
-    data() {
-        return {
-            phone: "",
-            password: "",
-        };
-    },
-    methods: {
-        async getLogin() {
-            try {
-                //登录成功
-                const { phone, password } = this;
-                phone && password && (await this.$store.dispatch("userLogin", { phone, password }));
-                // 跳转首页 看路由当中是否包含query参数，有:调到query参数指定路由，没有:调到home
-                let toPath = this.$route.query.redirect || "/home";
-                this.$router.push(toPath);
-                // this.$router.push("home");
-            } catch (error) {
-                alert(error.message);
-            }
-        },
-    },
+	name: "Login",
+	data() {
+		return {
+			phone   : "",
+			password: ""
+		};
+	},
+	methods: {
+		async getLogin() {
+			try {
+				//登录成功
+				const { phone, password } = this;
+				phone && password && (await this.$store.dispatch("userLogin", { phone, password }));
+				// 跳转首页 看路由当中是否包含query参数，有:调到query参数指定路由，没有:调到home
+				let toPath = this.$route.query.redirect || "/home";
+				this.$router.push(toPath);
+				// this.$router.push("home");
+			}
+			catch (error) {
+				alert(error.message);
+			}
+		}
+	}
 };
 </script>
 

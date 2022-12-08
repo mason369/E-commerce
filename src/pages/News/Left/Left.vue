@@ -125,7 +125,7 @@
                     <span class="time">5天前</span>
                 </div>
             </div>
-        </div>
+        </div>      
     </div>
 </template>
 

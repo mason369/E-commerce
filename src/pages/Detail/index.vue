@@ -298,77 +298,77 @@ import GoodsInfo from "@/pages/Detail/goodsInfo";
 import { mapGetters, mapState } from "vuex";
 
 export default {
-    name: "Detail",
-    data() {
-        //购买产品的个数
-        return {
-            skuNum: 1,
-            componentName: "goodsInfo",
-            activeIndex: 0,
-            comData: [
-                {
-                    name: "商品详情",
-                    componentsName: "goodsInfo",
-                },
-                {
-                    name: "评论",
-                    componentsName: "Common",
-                },
-            ],
-        };
-    },
-    methods: {
-        liClick(item, index) {
-            // console.log( item.componentsName)
-            this.componentName = item.componentsName;
-            this.activeIndex = index;
-        },
-        changeSkuSum(event) {
-            //用户输入进来的文本*1
-            let value = event.target.value * 1;
-            //如果用户输入进来的非法
-            if (isNaN(value) || value < 1) {
-                this.skuNum = 1;
-            } else {
-                this.skuNum = parseInt(value);
-            }
-        },
-        async addShopcar() {
-            //发请求
-            try {
-                await this.$store.dispatch("addOrUpdateShopCart", {
-                    skuId: this.$route.params.skuid,
-                    skuNum: this.skuNum,
-                });
-                sessionStorage.setItem("SKUINFO", JSON.stringify(this.skuInfo));
-                //成功后进行路由的跳转
-                this.$router.push({ name: "addcartsuccess", query: { skuNum: this.skuNum } });
-            } catch (error) {
-                alert(error.message);
-                console.log(this.$route.params.skuid, this.skuNum);
-            }
-        },
-    },
-    components: {
-        ImageList,
-        Zoom,
-        Common,
-        GoodsInfo,
-    },
-    mounted() {
-        //派发action获取产品详情的信息
-        this.$store.dispatch("getGoodsInfo", this.$route.params.skuid);
-    },
-    computed: {
-        ...mapGetters(["categoryView", "skuInfo"]),
-        ...mapState({
-            goodId: (state) => state.search.goodId,
-        }),
-        //给子组件的数据
-        skuImageList() {
-            return this.skuInfo.skuImageList || [];
-        },
-    },
+	name: "Detail",
+	data() {
+		//购买产品的个数
+		return {
+			skuNum       : 1,
+			componentName: "goodsInfo",
+			activeIndex  : 0,
+			comData      : [
+				{
+					name          : "商品详情",
+					componentsName: "goodsInfo"
+				},
+				{
+					name          : "评论",
+					componentsName: "Common"
+				}
+			]
+		};
+	},
+	methods: {
+		liClick(item, index) {
+			// console.log( item.componentsName)
+			this.componentName = item.componentsName;
+			this.activeIndex = index;
+		},
+		changeSkuSum(event) {
+			//用户输入进来的文本*1
+			let value = event.target.value * 1;
+			//如果用户输入进来的非法
+			if (isNaN(value) || value < 1) {
+				this.skuNum = 1;
+			}
+			else {
+				this.skuNum = parseInt(value);
+			}
+		},
+		async addShopcar() {
+			//发请求
+			try {
+				await this.$store.dispatch("addOrUpdateShopCart", {
+					skuId : this.$route.params.skuid,
+					skuNum: this.skuNum
+				});
+				sessionStorage.setItem("SKUINFO", JSON.stringify(this.skuInfo));
+				//成功后进行路由的跳转
+				this.$router.push({ name: "addcartsuccess", query: { skuNum: this.skuNum } });
+			}
+			catch (error) {
+				alert(error.message);
+				console.log(this.$route.params.skuid, this.skuNum);
+			}
+		}
+	},
+	components: {
+		ImageList,
+		Zoom,
+		Common,
+		GoodsInfo
+	},
+	mounted() {
+		//派发action获取产品详情的信息
+		this.$store.dispatch("getGoodsInfo", this.$route.params.skuid);
+	},
+	computed: {
+		...mapGetters(["categoryView", "skuInfo"]),
+		...mapState({goodId: (state) => state.search.goodId}),
+		//给子组件的数据
+		skuImageList() {
+			return this.skuInfo.skuImageList || [];
+		}
+	}
 };
 </script>
 

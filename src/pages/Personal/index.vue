@@ -16,13 +16,13 @@ import NavList from "@/pages/Personal/NavList";
 // import Wicket from "@/pages/Personal/Wicket";
 // import groupOrder from './groupOrder'
 export default {
-    components: {
-        NavList,
-        // Glike,
-        // Adver,
-        //   Wicket,
-        // groupOrder,
-    },
+	components: {
+		NavList
+		// Glike,
+		// Adver,
+		//   Wicket,
+		// groupOrder,
+	}
 };
 </script>
 

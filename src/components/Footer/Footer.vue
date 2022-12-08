@@ -136,14 +136,12 @@
 import Brand from "@/components/Footer/Brand";
 
 export default {
-    components: {
-        Brand,
-    },
-    computed: {
-        footer_hide() {
-            return !(this.$route.path == "/register") && !(this.$route.path == "/login");
-        },
-    },
+	components: {Brand},
+	computed  : {
+		footer_hide() {
+			return !(this.$route.path == "/register") && !(this.$route.path == "/login");
+		}
+	}
 };
 </script>
 

@@ -56,9 +56,7 @@
 </template>
 
 <script>
-export default {
-    name: "How",
-};
+export default {name: "How"};
 </script>
 
 <style lang="scss" scoped>

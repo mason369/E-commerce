@@ -225,58 +225,57 @@
 
 <script>
 export default {
-    data() {
-        return {
-            keyword: "",
-        };
-    },
+	data() {
+		return {keyword: ""};
+	},
 
 
-    methods: {
-        //搜索按钮回调
-        getSearch() {
-            //代表的是如果有query参数也带过去
-            if (this.$route.query) {
-                let loction = {
-                    name: "search",
-                    params: { keyword: this.keyword || undefined },
-                };
-                loction.query = this.$route.query;
-                this.$router.push(loction);
-            }
-        },
-        //退出登录
-        logOut() {
-            try {
-                //退出成功
-                this.$store.dispatch("userLogOut");
-                this.$router.push("/home");
-                //回到首页
-            } catch (error) {
-                alert(error.message);
-            }
-        },
-    },
-    computed: {
-        //搜索框显示与隐藏
-        searchHide() {
-            return !(this.$route.path == "/register") && !(this.$route.path == "/login");
-        },
-        //登录按钮显示与隐藏
-        loginHide() {
-            return !(this.$route.path == "/register") && !(this.$route.path == "/login");
-        },
-        //用户名信息
-        userName() {
-            return this.$store.state.user.userInfo.name;
-        },
-    },
-    mounted() {
-        //通过全局事件总线清除关健字
-        this.$bus.$on("clear", () => {
-            this.keyword = "";
-        });
-    },
+	methods: {
+		//搜索按钮回调
+		getSearch() {
+			//代表的是如果有query参数也带过去
+			if (this.$route.query) {
+				let loction = {
+					name  : "search",
+					params: { keyword: this.keyword || undefined }
+				};
+				loction.query = this.$route.query;
+				this.$router.push(loction);
+			}
+		},
+		//退出登录
+		logOut() {
+			try {
+				//退出成功
+				this.$store.dispatch("userLogOut");
+				this.$router.push("/home");
+				//回到首页
+			}
+			catch (error) {
+				alert(error.message);
+			}
+		}
+	},
+	computed: {
+		//搜索框显示与隐藏
+		searchHide() {
+			return !(this.$route.path == "/register") && !(this.$route.path == "/login");
+		},
+		//登录按钮显示与隐藏
+		loginHide() {
+			return !(this.$route.path == "/register") && !(this.$route.path == "/login");
+		},
+		//用户名信息
+		userName() {
+			return this.$store.state.user.userInfo.name;
+		}
+	},
+	mounted() {
+		//通过全局事件总线清除关健字
+		this.$bus.$on("clear", () => {
+			this.keyword = "";
+		});
+	}
 };
 </script>
 

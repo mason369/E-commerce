@@ -19,13 +19,13 @@ import Like from "@/pages/Home/Like";
 import Foolr from "@/pages/Home/Foolr";
 
 export default {
-    components: {
-        ListContainer,
-        Recommend,
-        Rank,
-        Like,
-        Foolr,
-    },
+	components: {
+		ListContainer,
+		Recommend,
+		Rank,
+		Like,
+		Foolr
+	}
 };
 </script>
 

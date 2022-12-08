@@ -114,41 +114,41 @@ import Glike from "@/pages/Personal/Glike";
 import Adver from "@/pages/Personal/Adver";
 
 export default {
-    data() {
-        return {
-            //初始化参数
-            //当前页数
-            page: 1,
-            // 每页数据个数
-            limit: 3,
-            //存储我的订单的数据
-            myOrder: {},
-        };
-    },
-    components: {
-        Glike,
-        Adver,
-    },
-    mounted() {
-        //获取我的订单
-        this.getData();
-    },
-    methods: {
-        //获取我的订单
-        async getData() {
-            const { page, limit } = this; //解构数据
-            let result = await this.$API.reqMyOrderList(page, limit);
-            if (result.code == 200) {
-                this.myOrder = result.data;
-            }
-        },
-        //获取点击页码
-        getPageNo(page) {
-            // 获取点击后对应页码
-            this.page = page;
-            this.getData();
-        },
-    },
+	data() {
+		return {
+			//初始化参数
+			//当前页数
+			page   : 1,
+			// 每页数据个数
+			limit  : 3,
+			//存储我的订单的数据
+			myOrder: {}
+		};
+	},
+	components: {
+		Glike,
+		Adver
+	},
+	mounted() {
+		//获取我的订单
+		this.getData();
+	},
+	methods: {
+		//获取我的订单
+		async getData() {
+			const { page, limit } = this; //解构数据
+			let result = await this.$API.reqMyOrderList(page, limit);
+			if (result.code == 200) {
+				this.myOrder = result.data;
+			}
+		},
+		//获取点击页码
+		getPageNo(page) {
+			// 获取点击后对应页码
+			this.page = page;
+			this.getData();
+		}
+	}
 };
 </script>
 

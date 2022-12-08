@@ -7,14 +7,14 @@
 </template>
 
 <script>
-  import ListNav from "@/pages/Site/ListNav";
-  import Sitecont from "@/pages/Site/Sitecont";
-  export default {
-      components:{
-        ListNav,
-        Sitecont,
-      }
-  }
+import ListNav from "@/pages/Site/ListNav";
+import Sitecont from "@/pages/Site/Sitecont";
+export default {
+	components: {
+		ListNav,
+		Sitecont
+	}
+}
 </script>
 <style lang="scss" scoped>
     div{

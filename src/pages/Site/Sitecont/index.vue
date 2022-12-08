@@ -11,7 +11,7 @@
                         <input type="button" value="保存收货地址" @click='add()'>
                     </div>
                 </div>
-                <div v-for="book in books" class="title">
+                <div v-for="book in books" :key="book.id" class="title">
                     <td>收货人:<div>{{book.id}}</div></td>
                     <td>地址:<div>{{book.name}}</div></td>
                     <td>手机号:<div>{{book.number}}</div></td>
@@ -29,73 +29,74 @@
 <script>
 
 export default {
-    data:function() {
-        return{
-        code:'',
-        name:'',
-        number:'',
-        flag:false,   //fales
-        index:'',
-        books:[
-            {
-                id:'张三',
-                name:'四川',
-                number:'15688888888',
-            },
-            {
-                id:'李四',
-                name:'重庆',
-                number:'15688888888',
-            },
-            {
-                id:'王五',
-                name:'湖南',
-                number:'15688888888',
-            },
-        ]
-        }
-        },
-        methods:{
-          //添加数据
-          add(){
-              // 加入一个空值判断
-              if(this.code.length != 0 && this.name.length != 0 && this.number.length != 0 && !this.flag){
-              var newBook = new Object();
-              newBook.id = this.code;
-              newBook.name = this.name;
-              newBook.number = this.number;
-              // 把当前newbook的数据加入books数组中
-              this.books.push(newBook);
-              // 清空输入框
-              this.code ='';
-              this.name ='';
-              this.number ='';
-              }else if(this.name.length != 0){
-                  this.books[this.index].name = this.name;
-                  this.books[this.index].code = this.code;
-                  this.books[this.index].code = this.number;
-                  this.flag = false;
-                  this.code ='';
-                  this.name ='';
-                  this.number ='';
-              }
-          },
-          deletebook(book){
-              // alert(book.name)
-              //从数组中移除一个元素
-              //先获取当前元素在数组中的下表索引
-              var bookIndex = this.books.indexOf(book);
-              //执行移除操作,第一个参数是要删除的数组的下标值；第二个参数：删除的个数
-              this.books.splice(bookIndex,1);
-          },
-          edit(book){
-              this.flag = true;
-              this.code = book.id;
-              this.name = book.name;
-              this.number = book.number;
-              this.index = this.books.indexOf(book);
-          }
-        }
+	data: function() {
+		return{
+			code  : "",
+			name  : "",
+			number: "",
+			flag  : false,   //fales
+			index : "",
+			books : [
+				{
+					id    : "张三",
+					name  : "四川",
+					number: "15688888888"
+				},
+				{
+					id    : "李四",
+					name  : "重庆",
+					number: "15688888888"
+				},
+				{
+					id    : "王五",
+					name  : "湖南",
+					number: "15688888888"
+				}
+			]
+		}
+	},
+	methods: {
+		//添加数据
+		add(){
+			// 加入一个空值判断
+			if(this.code.length != 0 && this.name.length != 0 && this.number.length != 0 && !this.flag){
+				var newBook = new Object();
+				newBook.id = this.code;
+				newBook.name = this.name;
+				newBook.number = this.number;
+				// 把当前newbook的数据加入books数组中
+				this.books.push(newBook);
+				// 清空输入框
+				this.code = "";
+				this.name = "";
+				this.number = "";
+			}
+			else if(this.name.length != 0){
+				this.books[this.index].name = this.name;
+				this.books[this.index].code = this.code;
+				this.books[this.index].code = this.number;
+				this.flag = false;
+				this.code = "";
+				this.name = "";
+				this.number = "";
+			}
+		},
+		deletebook(book){
+			// alert(book.name)
+			//从数组中移除一个元素
+			//先获取当前元素在数组中的下表索引
+			var bookIndex = this.books.indexOf(book);
+			//执行移除操作,第一个参数是要删除的数组的下标值；第二个参数：删除的个数
+			this.books.splice(bookIndex, 1);
+		},
+		edit(book){
+			this.flag = true;
+			this.code = book.id;
+			this.name = book.name;
+			this.number = book.number;
+			this.index = this.books.indexOf(book);
+		}
+	}
 };
 </script>
 <style lang="scss" scoped>

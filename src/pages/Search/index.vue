@@ -20,7 +20,7 @@
                             {{ searchParams.keyword }}<i @click="removeKeyword">x</i>
                         </li>
                         <!--                      品牌的面包屑-->
-                        <li class="with-x" v-if="searchParams.trademark">
+                        <li class="with-x" v-if="searchParams.trademark">.
                             {{ searchParams.trademark.split(":")[1] }}<i @click="removeTrademark">x</i>
                         </li>
                         <!--                      平台售卖属性值展示-->
@@ -120,172 +120,171 @@ import SearchSelector from "./SearchSelector/SearchSelector";
 import { mapGetters, mapMutations, mapState } from "vuex";
 
 export default {
-    data() {
-        //带给服务器的参数
-        return {
-            searchParams: {
-                //一级分类ID
-                category1Id: "",
-                //二级分类id
-                category2Id: "",
-                //三级分类id
-                category3Id: "",
-                //分类名字
-                categoryName: "",
-                //关键字
-                keyword: "",
-                //排序方式，初始状态是综合|降序
-                order: "2:desc",
-                // 当前第几页
-                pageNo: "1",
-                // 每页展示个数
-                pageSize: "10",
-                // 平台售卖属性操作带的参数
-                props: [],
-                //品牌
-                trademark: "",
-            },
-        };
-    },
-    components: {
-        SearchSelector,
-    },
-    beforeMount() {
-        Object.assign(this.searchParams, this.$route.query, this.$route.params);
-        // console.log(this.searchParams, this.$route.query, this.$route.params)
-    },
-    mounted() {
-        this.getData();
-    },
-    computed: {
-        //mapGetters里面的写法:传递的数组，因为getters计算是没有划分模块【home , search】
-        ...mapGetters(["goodsList"]),
+	data() {
+		//带给服务器的参数
+		return {
+			searchParams: {
+				//一级分类ID
+				category1Id : "",
+				//二级分类id
+				category2Id : "",
+				//三级分类id
+				category3Id : "",
+				//分类名字
+				categoryName: "",
+				//关键字
+				keyword     : "",
+				//排序方式，初始状态是综合|降序
+				order       : "2:desc",
+				// 当前第几页
+				pageNo      : "1",
+				// 每页展示个数
+				pageSize    : "10",
+				// 平台售卖属性操作带的参数
+				props       : [],
+				//品牌
+				trademark   : ""
+			}
+		};
+	},
+	components: {SearchSelector},
+	beforeMount() {
+		Object.assign(this.searchParams, this.$route.query, this.$route.params);
+		// console.log(this.searchParams, this.$route.query, this.$route.params)
+	},
+	mounted() {
+		this.getData();
+	},
+	computed: {
+		//mapGetters里面的写法:传递的数组，因为getters计算是没有划分模块【home , search】
+		...mapGetters(["goodsList"]),
 
-        isOne() {
-            return this.searchParams.order.indexOf("1") != -1;
-        },
-        isTwo() {
-            return this.searchParams.order.indexOf("2") != -1;
-        },
-        isAsc() {
-            return this.searchParams.order.indexOf("asc") != -1;
-        },
-        isDesc() {
-            return this.searchParams.order.indexOf("desc") != -1;
-        },
-        //获取search模块展示产品一共多少数据
-        ...mapState({
-            total: (state) => state.search.searchList.total,
-        }),
-    },
-    methods: {
-        ...mapMutations(["SetGoodsId"]),
-        cli(id) {
-            console.log(id);
-            this.SetGoodsId(id);
-            this.$router.push("/detail/" + id);
-        },
-        getData() {
-            this.$store.dispatch("getSearchList", this.searchParams);
-        },
-        removeCategoryName() {
-            //把带给服务器的参数置空了,还需要向服务器发请求
-            //带给服务器参数说明可有可无的:如果属性值为空的学符串还是会把相应的字段带给服务器
-            // 但是你把相应的字段变为undefined，当前这个字段不会带给服务髻
-            this.searchParams.categoryName = undefined;
-            this.searchParams.category1Id = undefined;
-            this.searchParams.category2Id = undefined;
-            this.searchParams.category3Id = undefined;
-            this.getData();
-            // 地址栏也要改,进行路由跳转
-            if (this.$route.params) {
-                this.$router.push({ name: "search", params: this.$route.params });
-            }
-        },
-        //删除关键字
-        removeKeyword() {
-            //给服务器管的参数searchParams的keyword置空
-            this.searchParams.keyword = undefined;
-            //在次发请求
-            this.getData();
-            //通知兄弟组件Header清除关键字
-            this.$bus.$emit("clear");
-            //进行路由的跳转
-            if (this.$route.query) {
-                this.$router.push({ name: "search", query: this.$route.query });
-            }
-        },
-        //面包屑通信
-        trademarkInfo(trademark) {
-            this.searchParams.trademark = `${trademark.tmId}:${trademark.tmName}`;
-            this.getData();
-        },
-        //删除品牌面包屑
-        removeTrademark() {
-            //品牌信息清空
-            this.searchParams.trademark = undefined;
-            this.getData();
-        },
-        //收集十台属性地方回调函数（自定义事件)
-        attrInfo(attr, attrValue) {
-            //属性ID：属性值：属性名
-            let props = `${attr.attrId}:${attrValue}:${attr.attrName}`;
-            //数组去重
-            if (this.searchParams.props.indexOf(props) == -1) this.searchParams.props.push(props);
-            //再次发请求
-            this.getData();
-        },
-        //删除选择的属性
-        removeAttr(index) {
-            //再次整理参数
-            this.searchParams.props.splice(index, 1);
-            //发送请求
-            this.getData();
-        },
-        //排序
-        changeOder(flag) {
-            //flag形参:它是一个标记，代表用户点击的是综合（1）价格（2)[用户点击的时候传递进来的]
-            //这里获取到的是最开始的状态
+		isOne() {
+			return this.searchParams.order.indexOf("1") != -1;
+		},
+		isTwo() {
+			return this.searchParams.order.indexOf("2") != -1;
+		},
+		isAsc() {
+			return this.searchParams.order.indexOf("asc") != -1;
+		},
+		isDesc() {
+			return this.searchParams.order.indexOf("desc") != -1;
+		},
+		//获取search模块展示产品一共多少数据
+		...mapState({total: (state) => state.search.searchList.total})
+	},
+	methods: {
+		...mapMutations(["SetGoodsId"]),
+		cli(id) {
+			console.log(id);
+			this.SetGoodsId(id);
+			this.$router.push("/detail/" + id);
+		},
+		getData() {
+			this.$store.dispatch("getSearchList", this.searchParams);
+		},
+		removeCategoryName() {
+			//把带给服务器的参数置空了,还需要向服务器发请求
+			//带给服务器参数说明可有可无的:如果属性值为空的学符串还是会把相应的字段带给服务器
+			// 但是你把相应的字段变为undefined，当前这个字段不会带给服务髻
+			this.searchParams.categoryName = undefined;
+			this.searchParams.category1Id = undefined;
+			this.searchParams.category2Id = undefined;
+			this.searchParams.category3Id = undefined;
+			this.getData();
+			// 地址栏也要改,进行路由跳转
+			if (this.$route.params) {
+				this.$router.push({ name: "search", params: this.$route.params });
+			}
+		},
+		//删除关键字
+		removeKeyword() {
+			//给服务器管的参数searchParams的keyword置空
+			this.searchParams.keyword = undefined;
+			//在次发请求
+			this.getData();
+			//通知兄弟组件Header清除关键字
+			this.$bus.$emit("clear");
+			//进行路由的跳转
+			if (this.$route.query) {
+				this.$router.push({ name: "search", query: this.$route.query });
+			}
+		},
+		//面包屑通信
+		trademarkInfo(trademark) {
+			this.searchParams.trademark = `${trademark.tmId}:${trademark.tmName}`;
+			this.getData();
+		},
+		//删除品牌面包屑
+		removeTrademark() {
+			//品牌信息清空
+			this.searchParams.trademark = undefined;
+			this.getData();
+		},
+		//收集十台属性地方回调函数（自定义事件)
+		attrInfo(attr, attrValue) {
+			//属性ID：属性值：属性名
+			let props = `${attr.attrId}:${attrValue}:${attr.attrName}`;
+			//数组去重
+			if (this.searchParams.props.indexOf(props) == -1) {
+				this.searchParams.props.push(props);
+			}
+			//再次发请求
+			this.getData();
+		},
+		//删除选择的属性
+		removeAttr(index) {
+			//再次整理参数
+			this.searchParams.props.splice(index, 1);
+			//发送请求
+			this.getData();
+		},
+		//排序
+		changeOder(flag) {
+			//flag形参:它是一个标记，代表用户点击的是综合（1）价格（2)[用户点击的时候传递进来的]
+			//这里获取到的是最开始的状态
 
-            let originFlag = this.searchParams.order.split(":")[0];
-            let originSort = this.searchParams.order.split(":")[1];
-            //准备一个新的order属性值
-            let newOrder = "";
-            //这个语句能确定点击的一定是综合
-            if (flag == originFlag) {
-                //点击综合
-                newOrder = `${originFlag}:${originSort == "desc" ? "asc" : "desc"}`;
-            } else {
-                //点击价格
-                newOrder = `${flag}:${"desc"}`;
-            }
-            //将新的order赋予searchParams
-            this.searchParams.order = newOrder;
-            this.getData();
-        },
+			let originFlag = this.searchParams.order.split(":")[0];
+			let originSort = this.searchParams.order.split(":")[1];
+			//准备一个新的order属性值
+			let newOrder = "";
+			//这个语句能确定点击的一定是综合
+			if (flag == originFlag) {
+				//点击综合
+				newOrder = `${originFlag}:${originSort == "desc" ? "asc" : "desc"}`;
+			}
+			else {
+				//点击价格
+				newOrder = `${flag}:${"desc"}`;
+			}
+			//将新的order赋予searchParams
+			this.searchParams.order = newOrder;
+			this.getData();
+		},
 
-        //自定义事件
-        getPageNo(pageNo) {
-            //整理带给服务器参数
-            this.searchParams.pageNo = pageNo;
-            this.getData();
-        },
-    },
-    //数据监听:监听组件实例身上的属性的局性值变化
-    watch: {
-        //监听路由的信息是否发生变化，如果发生变化，再次发起请求
-        $route() {
-            //每一次请求完毕，应该把相应的1、2、3级分类的id置空的，让他接受下一次的相应1、2、3
-            //再次发请求之前整理带给服务器参数
-            Object.assign(this.searchParams, this.$route.query, this.$route.params);
-            //再次发起ajax请求
-            this.getData();
-            //分类名字与关键字不用清理：因为每一次路由发生变化的时候，都会给他赋予新的数据
-            this.searchParams.category1Id = undefined;
-            this.searchParams.category2Id = undefined;
-            this.searchParams.category3Id = undefined;
-        },
-    },
+		//自定义事件
+		getPageNo(pageNo) {
+			//整理带给服务器参数
+			this.searchParams.pageNo = pageNo;
+			this.getData();
+		}
+	},
+	//数据监听:监听组件实例身上的属性的局性值变化
+	watch: {
+		//监听路由的信息是否发生变化，如果发生变化，再次发起请求
+		$route() {
+			//每一次请求完毕，应该把相应的1、2、3级分类的id置空的，让他接受下一次的相应1、2、3
+			//再次发请求之前整理带给服务器参数
+			Object.assign(this.searchParams, this.$route.query, this.$route.params);
+			//再次发起ajax请求
+			this.getData();
+			//分类名字与关键字不用清理：因为每一次路由发生变化的时候，都会给他赋予新的数据
+			this.searchParams.category1Id = undefined;
+			this.searchParams.category2Id = undefined;
+			this.searchParams.category3Id = undefined;
+		}
+	}
 };
 </script>
 

@@ -14,3 +14,6 @@ yarn-error.log
 *.sln
 node_modules/.cache
 node_modules
+.idea/workspace.xml
+*.xml
+.idea/workspace.xml

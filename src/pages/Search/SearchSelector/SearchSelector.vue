@@ -35,20 +35,18 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
-    name: "SearchSelector",
-    computed: {
-        ...mapGetters(["trademarkList", "attrsList"]),
-    },
-    methods: {
-        tradeMarkHandler(trademark) {
-            // 子给父通信
-            this.$emit("trademarkInfo", trademark);
-        },
-        attrInfo(attr, attrValue) {
-            //属性ID：属性值：属性名
-            this.$emit("attrInfo", attr, attrValue);
-        },
-    },
+	name    : "SearchSelector",
+	computed: {...mapGetters(["trademarkList", "attrsList"])},
+	methods : {
+		tradeMarkHandler(trademark) {
+			// 子给父通信
+			this.$emit("trademarkInfo", trademark);
+		},
+		attrInfo(attr, attrValue) {
+			//属性ID：属性值：属性名
+			this.$emit("attrInfo", attr, attrValue);
+		}
+	}
 };
 </script>
 

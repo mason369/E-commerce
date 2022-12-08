@@ -1,5 +1,47 @@
 # Changelog
 
+### [1.2.5](https://www.github.com/Galaxy-Wish-Star/E-commerce/compare/v1.2.4...v1.2.5) (2022-12-07)
+
+
+### update
+
+* update Rank imgs ([29ee939](https://www.github.com/Galaxy-Wish-Star/E-commerce/commit/29ee9399b0906ffdf17fdacb08839291f7efb49e))
+
+### [1.2.4](https://www.github.com/Galaxy-Wish-Star/E-commerce/compare/v1.2.3...v1.2.4) (2022-12-04)
+
+
+### update
+
+* rename ([eb964a3](https://www.github.com/Galaxy-Wish-Star/E-commerce/commit/eb964a343529c69407c56e069b42be26944e4eed))
+
+### [1.2.3](https://www.github.com/Galaxy-Wish-Star/E-commerce/compare/v1.2.2...v1.2.3) (2022-12-02)
+
+
+### update
+
+* update eslint and prettier ([7343c3e](https://www.github.com/Galaxy-Wish-Star/E-commerce/commit/7343c3e515a44957bda7df9ca30b5a215038cec4))
+
+### [1.2.2](https://www.github.com/Galaxy-Wish-Star/E-commerce/compare/v1.2.1...v1.2.2) (2022-12-01)
+
+
+### update
+
+* update commons to detail ([6127c17](https://www.github.com/Galaxy-Wish-Star/E-commerce/commit/6127c173ed8051ff2c4be34efa42238249a9f999))
+
+### [1.2.1](https://www.github.com/Galaxy-Wish-Star/E-commerce/compare/v1.2.0...v1.2.1) (2022-11-30)
+
+
+### update
+
+* add admin login ([ddf2208](https://www.github.com/Galaxy-Wish-Star/E-commerce/commit/ddf2208867c4695383d438fdcea5b4b10d45753a))
+
+## [1.2.0](https://www.github.com/Galaxy-Wish-Star/E-commerce/compare/v1.1.10...v1.2.0) (2022-11-29)
+
+
+### Features
+
+* update ([6671bfc](https://www.github.com/Galaxy-Wish-Star/E-commerce/commit/6671bfc1fc6515a519211a2fac9cdf61c318d408))
+
 ### [1.1.10](https://www.github.com/Galaxy-Wish-Star/E-commerce/compare/v1.1.9...v1.1.10) (2022-11-27)
 
 
